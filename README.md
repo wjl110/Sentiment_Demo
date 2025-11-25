@@ -11,7 +11,7 @@ gradio
 transformers
 torch
 ```
-## 主运行文件
+## GUI主运行文件
 app.py
 
 ## 使用方式
@@ -28,7 +28,7 @@ app.py
 这是一个基于 BERT 的中文情感分类模型，可以将文本分类为三种情感：快乐、愤怒、悲伤。
 
 
-## 项目结构
+## GitHub项目结构
 - `Emo.py`: 最终版本情感分类模型，包含完整的训练和评估功能
 - `test_emotion.py`: 模型测试脚本
 - `emotion_data.csv`: 情感数据集
