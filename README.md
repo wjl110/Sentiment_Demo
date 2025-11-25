@@ -1,2 +1,154 @@
-# Sentiment_Demo
-https://huggingface.co/spaces/WJL110/Sentiment_Demo
+# 基于Transformer的情绪检测系统的软件项目
+Hugging Face GUI演示：[https://huggingface.co/spaces/WJL110/Sentiment_Demo](https://huggingface.co/spaces/WJL110/Sentiment_Demo)
+Github：[https://github.com/wjl110/Sentiment_Demo](https://github.com/wjl110/Sentiment_Demo)
+Hugging Face模型卡：[https://huggingface.co/spaces/WJL110/emotion-classifier](https://huggingface.co/spaces/WJL110/emotion-classifier)
+
+## GUI依赖工具
+```txt
+gradio
+transformers
+torch
+```
+## 主运行文件
+app.py
+
+## 使用方式
+1. 构建Gradio前端演示
+
+2. 点击预设词模型进行识别
+
+
+## 视频演示
+[https://drive.google.com/file/d/17JIWMDXvVC-aBmpXIA5g0QkjG3afyl9y/view?usp=sharing](https://drive.google.com/file/d/17JIWMDXvVC-aBmpXIA5g0QkjG3afyl9y/view?usp=sharing)
+
+这是一个基于 BERT 的中文情感分类模型，可以将文本分类为三种情感：快乐、愤怒、悲伤。
+
+
+## 项目结构
+- `Emo.py`: 最终版本情感分类模型，包含完整的训练和评估功能
+- `test_emotion.py`: 模型测试脚本
+- `emotion_data.csv`: 情感数据集
+- `requirements.txt`: 项目依赖
+- `config.json`: 配置文件
+- `.env`: 环境变量文件（包含敏感信息，不提交到仓库）
+
+## 安装
+
+1. 克隆仓库：
+```bash
+git clone https://github.com/WJL110/Sentiment_Demo.git
+cd Sentiment_Demo
+```
+2. 安装依赖：
+```bash
+pip install -r requirements.txt
+```
+## 使用方法
+
+1. 训练模型：
+```bash
+python Emo.py
+```
+2. 测试模型：
+```bash
+python test_emotion.py
+```
+3. 上传模型：
+```bash
+python upload_model.py
+```
+
+## Hugging Face 模型卡调用
+```python
+from transformers import pipeline
+classifier = pipeline("text-classification", model="WJL110/chinese-emotion-classifier")
+result = classifier("今天真是太开心了！")
+print(result)
+```
+
+## 模型说明
+
+- 基础模型：chinese-bert-wwm-ext
+- 训练数据：约100条中文情感数据
+- 情感类别：
+  - 快乐
+  - 愤怒
+  - 悲伤
+- 特点：
+  - 支持数据增强
+  - 包含评估指标（准确率、F1分数等）
+  - 自动保存最佳模型
+
+
+## 性能指标
+
+- Accuracy: 模型准确率
+- F1 Score: F1分数
+- Precision: 精确率
+- Recall: 召回率
+
+## 开发环境
+
+- Python 3.12
+- PyTorch
+- Transformers
+- Hugging Face 
+
+## 调用方法
+
+```python
+from transformers import pipeline
+
+# 创建分类器
+classifier = pipeline("text-classification", model="WJL110/emotion-classifier")
+
+# 标签映射
+label_map = {
+    "LABEL_0": "快乐",
+    "LABEL_1": "愤怒",
+    "LABEL_2": "悲伤"
+}
+
+# 测试文本
+test_texts = [
+    "今天真是太开心了！",
+    "这件事让我很生气。",
+    "听到这个消息很难过。"
+]
+
+print("=== 情感分析测试 ===")
+for text in test_texts:
+    result = classifier(text)[0]  # 获取第一个（也是唯一的）结果
+    emotion = label_map[result['label']]
+    confidence = result['score']
+    
+    print(f"\n输入文本: {text}")
+    print(f"预测情感: {emotion}")
+    print(f"置信度: {confidence:.2f}")
+```
+
+
+# 版权说明
+[![CC BY-NC-ND](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+本作品采用 **[知识共享 署名-非商业性使用-禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)** 授权。
+
+### 条款摘要
+- **您必须署名**：明确标注原作者姓名及作品来源链接
+- **禁止商用**：不得用于任何商业目的（包括广告、付费服务等）
+- **禁止修改**：不得以任何形式改编、转换或二次创作
+
+## 作者
+
+@[WJL110](https://github.com/wjl110)
+
+## 更新日志
+
+- 2024-01: 初始版本发布
+- 2024-01: 添加数据增强功能
+- 2024-01: 优化模型性能
+- 2024-01: 集成 Hugging Face Hub
+
+Copyright © [2025] [王健霖]。All rights reserved.
+This code is intended solely for the purpose of patent application and is not licensed for general use or distribution.
+
