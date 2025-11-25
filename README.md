@@ -1,6 +1,8 @@
 # 基于Transformer的情绪检测系统的软件项目
 Hugging Face GUI演示：[https://huggingface.co/spaces/WJL110/Sentiment_Demo](https://huggingface.co/spaces/WJL110/Sentiment_Demo)
+
 Github：[https://github.com/wjl110/Sentiment_Demo](https://github.com/wjl110/Sentiment_Demo)
+
 Hugging Face模型卡：[https://huggingface.co/spaces/WJL110/emotion-classifier](https://huggingface.co/spaces/WJL110/emotion-classifier)
 
 ## GUI依赖工具
