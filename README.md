@@ -14,9 +14,11 @@ app.py
 
 ## 使用方式
 1. 构建Gradio前端演示
-
+![tu1](./image-20251125112813445.png)
 2. 点击预设词模型进行识别
-
+![tu2](./image-20251125112939379.png)
+![tu3](./image-20251125113017511.png)
+![tu4](./image-20251125113041685.png)
 
 ## 视频演示
 [https://drive.google.com/file/d/17JIWMDXvVC-aBmpXIA5g0QkjG3afyl9y/view?usp=sharing](https://drive.google.com/file/d/17JIWMDXvVC-aBmpXIA5g0QkjG3afyl9y/view?usp=sharing)
